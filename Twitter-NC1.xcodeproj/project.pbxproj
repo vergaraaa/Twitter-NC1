@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F047FB192B03CD5E000288AF /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F047FB182B03CD5E000288AF /* LoginViewModel.swift */; };
+		F047FB1B2B03CD73000288AF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F047FB1A2B03CD73000288AF /* LoginView.swift */; };
 		F048DEBF2B02AA05006559C4 /* Twitter_NC1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F048DEBE2B02AA05006559C4 /* Twitter_NC1App.swift */; };
 		F048DEC12B02AA05006559C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F048DEC02B02AA05006559C4 /* ContentView.swift */; };
 		F048DEC32B02AA06006559C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F048DEC22B02AA06006559C4 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F047FB182B03CD5E000288AF /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		F047FB1A2B03CD73000288AF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F048DEBB2B02AA05006559C4 /* Twitter-NC1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Twitter-NC1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F048DEBE2B02AA05006559C4 /* Twitter_NC1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Twitter_NC1App.swift; sourceTree = "<group>"; };
 		F048DEC02B02AA05006559C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +36,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F047FB132B03CD36000288AF /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		F047FB142B03CD3B000288AF /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				F047FB152B03CD45000288AF /* Login */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		F047FB152B03CD45000288AF /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F047FB172B03CD51000288AF /* View */,
+				F047FB162B03CD4D000288AF /* ViewModel */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		F047FB162B03CD4D000288AF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F047FB182B03CD5E000288AF /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F047FB172B03CD51000288AF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F047FB1A2B03CD73000288AF /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F048DEB22B02AA05006559C4 = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +95,8 @@
 		F048DEBD2B02AA05006559C4 /* Twitter-NC1 */ = {
 			isa = PBXGroup;
 			children = (
+				F047FB132B03CD36000288AF /* Core */,
+				F047FB142B03CD3B000288AF /* Features */,
 				F048DEBE2B02AA05006559C4 /* Twitter_NC1App.swift */,
 				F048DEC02B02AA05006559C4 /* ContentView.swift */,
 				F048DEC22B02AA06006559C4 /* Assets.xcassets */,
@@ -139,6 +185,8 @@
 			files = (
 				F048DEC12B02AA05006559C4 /* ContentView.swift in Sources */,
 				F048DEBF2B02AA05006559C4 /* Twitter_NC1App.swift in Sources */,
+				F047FB1B2B03CD73000288AF /* LoginView.swift in Sources */,
+				F047FB192B03CD5E000288AF /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
