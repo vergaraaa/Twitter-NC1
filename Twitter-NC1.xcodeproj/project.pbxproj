@@ -43,6 +43,8 @@
 		F047FB132B03CD36000288AF /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F047FB242B03D986000288AF /* App */,
+				F047FB252B03D99B000288AF /* Root */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -106,6 +108,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F047FB242B03D986000288AF /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F048DEBE2B02AA05006559C4 /* Twitter_NC1App.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F047FB252B03D99B000288AF /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				F048DEC02B02AA05006559C4 /* ContentView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
 		F048DEB22B02AA05006559C4 = {
 			isa = PBXGroup;
 			children = (
@@ -127,8 +145,6 @@
 			children = (
 				F047FB132B03CD36000288AF /* Core */,
 				F047FB142B03CD3B000288AF /* Features */,
-				F048DEBE2B02AA05006559C4 /* Twitter_NC1App.swift */,
-				F048DEC02B02AA05006559C4 /* ContentView.swift */,
 				F048DEC22B02AA06006559C4 /* Assets.xcassets */,
 				F048DEC42B02AA06006559C4 /* Preview Content */,
 			);

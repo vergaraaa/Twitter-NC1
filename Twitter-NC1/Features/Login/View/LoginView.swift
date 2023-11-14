@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct LoginView: View {
-    @StateObject var viewModel = LoginViewModel()
-    
     @Environment(\.colorScheme) var theme
+    
+    @StateObject var viewModel = LoginViewModel()
     
     var body: some View {
         NavigationStack {
@@ -62,17 +62,13 @@ struct LoginView: View {
                     }
                     
                     NavigationLink {
-                        Text("Register")
+                        RegisterView()
                     } label: {
                         Text("Register")
                             .padding(.vertical, 10)
                             .bold()
                             .font(.caption)
                     }
-
-                    
-                    
-                        
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
