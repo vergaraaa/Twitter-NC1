@@ -25,7 +25,7 @@ struct RegisterView: View {
                         .font(.callout)
                     
                     
-                    TextField("Name", text: $viewModel.email)
+                    TextField("Name", text: $viewModel.fullname)
                         .autocorrectionDisabled()
                         .textInputAutocapitalization(.never)
                         .foregroundStyle(.blue)
@@ -38,7 +38,7 @@ struct RegisterView: View {
                         .font(.callout)
                     
                     
-                    TextField("Username", text: $viewModel.email)
+                    TextField("Username", text: $viewModel.username)
                         .autocorrectionDisabled()
                         .textInputAutocapitalization(.never)
                         .foregroundStyle(.blue)
