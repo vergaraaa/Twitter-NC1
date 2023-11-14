@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		F047FB192B03CD5E000288AF /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F047FB182B03CD5E000288AF /* LoginViewModel.swift */; };
 		F047FB1B2B03CD73000288AF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F047FB1A2B03CD73000288AF /* LoginView.swift */; };
+		F047FB202B03D7A0000288AF /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F047FB1F2B03D7A0000288AF /* RegisterView.swift */; };
+		F047FB232B03D7AB000288AF /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F047FB222B03D7AB000288AF /* RegisterViewModel.swift */; };
 		F048DEBF2B02AA05006559C4 /* Twitter_NC1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F048DEBE2B02AA05006559C4 /* Twitter_NC1App.swift */; };
 		F048DEC12B02AA05006559C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F048DEC02B02AA05006559C4 /* ContentView.swift */; };
 		F048DEC32B02AA06006559C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F048DEC22B02AA06006559C4 /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 /* Begin PBXFileReference section */
 		F047FB182B03CD5E000288AF /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F047FB1A2B03CD73000288AF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		F047FB1F2B03D7A0000288AF /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		F047FB222B03D7AB000288AF /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		F048DEBB2B02AA05006559C4 /* Twitter-NC1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Twitter-NC1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F048DEBE2B02AA05006559C4 /* Twitter_NC1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Twitter_NC1App.swift; sourceTree = "<group>"; };
 		F048DEC02B02AA05006559C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -47,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				F047FB152B03CD45000288AF /* Login */,
+				F047FB1C2B03D77C000288AF /* Register */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -72,6 +77,31 @@
 			isa = PBXGroup;
 			children = (
 				F047FB1A2B03CD73000288AF /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F047FB1C2B03D77C000288AF /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				F047FB1E2B03D794000288AF /* View */,
+				F047FB1D2B03D791000288AF /* ViewModel */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		F047FB1D2B03D791000288AF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F047FB222B03D7AB000288AF /* RegisterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F047FB1E2B03D794000288AF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F047FB1F2B03D7A0000288AF /* RegisterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -184,6 +214,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F048DEC12B02AA05006559C4 /* ContentView.swift in Sources */,
+				F047FB232B03D7AB000288AF /* RegisterViewModel.swift in Sources */,
+				F047FB202B03D7A0000288AF /* RegisterView.swift in Sources */,
 				F048DEBF2B02AA05006559C4 /* Twitter_NC1App.swift in Sources */,
 				F047FB1B2B03CD73000288AF /* LoginView.swift in Sources */,
 				F047FB192B03CD5E000288AF /* LoginViewModel.swift in Sources */,

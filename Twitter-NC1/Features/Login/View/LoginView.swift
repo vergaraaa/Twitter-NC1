@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State var email = ""
-    @State var password = ""
+    @StateObject var viewModel = LoginViewModel()
     
     @Environment(\.colorScheme) var theme
     
@@ -23,11 +22,11 @@ struct LoginView: View {
                 
                 VStack(spacing: 30) {
                     VStack(alignment: .leading, spacing: 5) {
-                        Text(email.isEmpty ? "" : "Email")
+                        Text(viewModel.email.isEmpty ? "" : "Email")
                             .font(.callout)
                             
                         
-                        TextField("Email", text: $email)
+                        TextField("Email", text: $viewModel.email)
                             .autocorrectionDisabled()
                             .textInputAutocapitalization(.never)
                             .foregroundStyle(.blue)
@@ -36,10 +35,10 @@ struct LoginView: View {
                     }
                     
                     VStack(alignment: .leading, spacing: 5) {
-                        Text(password.isEmpty ? "" : "Password")
+                        Text(viewModel.password.isEmpty ? "" : "Password")
                             .font(.callout)
                         
-                        SecureField("Password", text: $password)
+                        SecureField("Password", text: $viewModel.password)
                             .foregroundStyle(.blue)
                         
                         Divider()
@@ -62,10 +61,18 @@ struct LoginView: View {
                             .bold()
                     }
                     
-                    Text("Forgot password?")
-                        .padding(.vertical, 10)
-                        .bold()
-                        .font(.caption)
+                    NavigationLink {
+                        Text("Register")
+                    } label: {
+                        Text("Register")
+                            .padding(.vertical, 10)
+                            .bold()
+                            .font(.caption)
+                    }
+
+                    
+                    
+                        
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
