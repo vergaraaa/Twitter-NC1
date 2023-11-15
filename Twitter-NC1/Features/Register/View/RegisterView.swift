@@ -27,7 +27,6 @@ struct RegisterView: View {
                     
                     TextField("Name", text: $viewModel.fullname)
                         .autocorrectionDisabled()
-                        .textInputAutocapitalization(.never)
                         .foregroundStyle(.blue)
                     
                     Divider()
@@ -75,15 +74,25 @@ struct RegisterView: View {
             
             
             Button {
-                
+                Task { try await viewModel.register() }
             } label: {
-                Text("Register")
-                    .padding(15)
-                    .frame(maxWidth: .infinity)
-                    .background(theme == .light ? .black : .white)
-                    .clipShape(RoundedRectangle(cornerRadius: 30))
-                    .foregroundStyle(theme == .light ? .white : .black)
-                    .bold()
+                if viewModel.loading {
+                    ProgressView()
+                        .padding(15)
+                        .frame(maxWidth: .infinity)
+                        .background(theme == .light ? .black : .white)
+                        .clipShape(RoundedRectangle(cornerRadius: 30))
+                        .tint(theme == .light ? .white : .black)
+                }
+                else {
+                    Text("Register")
+                        .padding(15)
+                        .frame(maxWidth: .infinity)
+                        .background(theme == .light ? .black : .white)
+                        .clipShape(RoundedRectangle(cornerRadius: 30))
+                        .foregroundStyle(theme == .light ? .white : .black)
+                        .bold()
+                }
             }
             .padding(.bottom)
         }
@@ -96,6 +105,11 @@ struct RegisterView: View {
                 Text("X")
                     .font(.largeTitle.bold())
                     .accessibilityAddTraits(.isHeader)
+            }
+        }
+        .alert(viewModel.error ?? "", isPresented: $viewModel.showAlert) {
+            Button("OK", role: .cancel) {
+                viewModel.showAlert = false
             }
         }
     }

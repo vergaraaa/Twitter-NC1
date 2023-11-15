@@ -10,6 +10,7 @@ import Foundation
 class LoginViewModel: ObservableObject {
     @Published var email = ""
     @Published var password = ""
+    
     @Published var loading = false
     @Published var error : String?
     @Published var showAlert = false

@@ -31,12 +31,12 @@ class AuthService {
         } catch {
             print("DEBUG: Failed to login user with error \(error.localizedDescription)")
             
-            return "Invalid login credentials. Please try again."
+            return error.localizedDescription
         }
     }
     
     @MainActor
-    func createUser(fullname: String, email: String, password: String, username: String) async throws {
+    func createUser(fullname: String, email: String, password: String, username: String) async throws -> String? {
         do {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
             
@@ -48,8 +48,12 @@ class AuthService {
                 fullname: fullname,
                 username: username
             )
+            
+            return nil
         } catch {
             print("DEBUG: Failed to register user with error \(error.localizedDescription)")
+            
+            return error.localizedDescription
         }
     }
     
