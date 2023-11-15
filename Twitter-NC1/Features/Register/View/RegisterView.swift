@@ -12,6 +12,11 @@ struct RegisterView: View {
     
     @StateObject var viewModel = RegisterViewModel()
     
+    var disabled : Bool {
+        return viewModel.email.isEmpty || viewModel.password.isEmpty ||
+        viewModel.fullname.isEmpty || viewModel.username.isEmpty
+    }
+    
     var body: some View {
         VStack(spacing: 20) {
             Text("Register")
@@ -69,9 +74,7 @@ struct RegisterView: View {
                 }
             }
             
-            
             Spacer()
-            
             
             Button {
                 hideKeyboard()
@@ -87,6 +90,7 @@ struct RegisterView: View {
                 }
                 else {
                     Text("Register")
+                        .opacity(disabled ? 0.5 : 1)
                         .padding(15)
                         .frame(maxWidth: .infinity)
                         .background(theme == .light ? .black : .white)
@@ -96,6 +100,7 @@ struct RegisterView: View {
                 }
             }
             .padding(.bottom)
+            .disabled(disabled)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
