@@ -11,16 +11,23 @@ struct ContentView: View {
     @StateObject var viewModel = ContentViewModel()
     
     var body: some View {
-        if viewModel.userSession != nil {
-            Text(UserService.shared.currentUser?.fullname ?? "")
-            
-            Button("Log out") {
-                AuthService.shared.signOut()
-            }
+        if viewModel.loading {
+            Text("X")
+                .font(.largeTitle.bold())
         }
         else {
-            LoginView()
+            if viewModel.currentUser != nil {
+                Text(AuthService.shared.currentUser?.fullname ?? "")
+                
+                Button("Log out") {
+                    AuthService.shared.signOut()
+                }
+            }
+            else {
+                LoginView()
+            }
         }
+        
     }
 }
 
