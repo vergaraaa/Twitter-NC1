@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
+    
     @Environment(\.colorScheme) var theme
     
     @StateObject var viewModel = LoginViewModel()
@@ -54,9 +55,8 @@ struct LoginView: View {
                 
                 VStack {
                     Button {
-                        Task {
-                            try await viewModel.login()
-                        }
+                        hideKeyboard()
+                        Task { try await viewModel.login() }
                     } label: {
                         if viewModel.loading {
                             ProgressView()

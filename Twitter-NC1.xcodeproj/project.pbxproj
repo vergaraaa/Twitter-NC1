@@ -53,6 +53,7 @@
 		F048DEC12B02AA05006559C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F048DEC02B02AA05006559C4 /* ContentView.swift */; };
 		F048DEC32B02AA06006559C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F048DEC22B02AA06006559C4 /* Assets.xcassets */; };
 		F048DEC62B02AA06006559C4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F048DEC52B02AA06006559C4 /* Preview Assets.xcassets */; };
+		F071E30E2B05395000C58E19 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F071E30D2B05395000C58E19 /* View.swift */; };
 		F0EF1A5F2B0503720037B913 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0EF1A5E2B0503720037B913 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		F048DEC02B02AA05006559C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F048DEC22B02AA06006559C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F048DEC52B02AA06006559C4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F071E30D2B05395000C58E19 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		F0EF1A5E2B0503720037B913 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				F047FB242B03D986000288AF /* App */,
+				F071E30C2B05391C00C58E19 /* Extensions */,
 				F0232AB12B050A9F0026129E /* Models */,
 				F047FB252B03D99B000288AF /* Root */,
 				F0232A712B0507D60026129E /* Services */,
@@ -272,6 +275,14 @@
 				F048DEC52B02AA06006559C4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F071E30C2B05391C00C58E19 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F071E30D2B05395000C58E19 /* View.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,6 +403,7 @@
 				F048DEBF2B02AA05006559C4 /* Twitter_NC1App.swift in Sources */,
 				F047FB1B2B03CD73000288AF /* LoginView.swift in Sources */,
 				F047FB192B03CD5E000288AF /* LoginViewModel.swift in Sources */,
+				F071E30E2B05395000C58E19 /* View.swift in Sources */,
 				F0232AB32B050AA90026129E /* User.swift in Sources */,
 				F0232A732B0508350026129E /* AuthService.swift in Sources */,
 			);

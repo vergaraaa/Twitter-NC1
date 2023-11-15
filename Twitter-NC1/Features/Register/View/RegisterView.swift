@@ -74,6 +74,7 @@ struct RegisterView: View {
             
             
             Button {
+                hideKeyboard()
                 Task { try await viewModel.register() }
             } label: {
                 if viewModel.loading {
