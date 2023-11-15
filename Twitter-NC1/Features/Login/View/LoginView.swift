@@ -50,7 +50,6 @@ struct LoginView: View {
                     }
                 }
                 
-                
                 Spacer()
                 
                 VStack {
@@ -75,9 +74,7 @@ struct LoginView: View {
                                 .clipShape(RoundedRectangle(cornerRadius: 30))
                                 .foregroundStyle(theme == .light ? .white : .black)
                                 .bold()
-                            
                         }
-                        
                     }
                     .disabled(disabled)
                     
@@ -100,6 +97,7 @@ struct LoginView: View {
                     Text("X")
                         .font(.largeTitle.bold())
                         .accessibilityAddTraits(.isHeader)
+                        .accessibilityLabel("X Logo")
                 }
             }
             .alert(viewModel.error ?? "", isPresented: $viewModel.showAlert) {

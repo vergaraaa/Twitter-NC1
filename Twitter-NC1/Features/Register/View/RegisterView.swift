@@ -111,6 +111,7 @@ struct RegisterView: View {
                 Text("X")
                     .font(.largeTitle.bold())
                     .accessibilityAddTraits(.isHeader)
+                    .accessibilityLabel("X Logo")
             }
         }
         .alert(viewModel.error ?? "", isPresented: $viewModel.showAlert) {
