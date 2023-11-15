@@ -12,6 +12,10 @@ struct LoginView: View {
     
     @StateObject var viewModel = LoginViewModel()
     
+    var disabled : Bool {
+        return viewModel.email.isEmpty || viewModel.password.isEmpty
+    }
+    
     var body: some View {
         NavigationStack {
             VStack(spacing: 20) {
@@ -24,7 +28,7 @@ struct LoginView: View {
                     VStack(alignment: .leading, spacing: 5) {
                         Text(viewModel.email.isEmpty ? "" : "Email")
                             .font(.callout)
-                            
+                        
                         
                         TextField("Email", text: $viewModel.email)
                             .autocorrectionDisabled()
@@ -50,16 +54,32 @@ struct LoginView: View {
                 
                 VStack {
                     Button {
-                        
+                        Task {
+                            try await viewModel.login()
+                        }
                     } label: {
-                        Text("Login")
-                            .padding(15)
-                            .frame(maxWidth: .infinity)
-                            .background(theme == .light ? .black : .white)
-                            .clipShape(RoundedRectangle(cornerRadius: 30))
-                            .foregroundStyle(theme == .light ? .white : .black)
-                            .bold()
+                        if viewModel.loading {
+                            ProgressView()
+                                .padding(15)
+                                .frame(maxWidth: .infinity)
+                                .background(theme == .light ? .black : .white)
+                                .clipShape(RoundedRectangle(cornerRadius: 30))
+                                .tint(theme == .light ? .white : .black)
+                        }
+                        else {
+                            Text("Login")
+                                .opacity(disabled ? 0.5 : 1)
+                                .padding(15)
+                                .frame(maxWidth: .infinity)
+                                .background(theme == .light ? .black : .white)
+                                .clipShape(RoundedRectangle(cornerRadius: 30))
+                                .foregroundStyle(theme == .light ? .white : .black)
+                                .bold()
+                            
+                        }
+                        
                     }
+                    .disabled(disabled)
                     
                     NavigationLink {
                         RegisterView()
@@ -80,6 +100,11 @@ struct LoginView: View {
                     Text("X")
                         .font(.largeTitle.bold())
                         .accessibilityAddTraits(.isHeader)
+                }
+            }
+            .alert(viewModel.error ?? "", isPresented: $viewModel.showAlert) {
+                Button("OK", role: .cancel) {
+                    viewModel.showAlert = false
                 }
             }
         }

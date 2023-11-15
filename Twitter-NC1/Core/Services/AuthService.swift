@@ -19,14 +19,18 @@ class AuthService {
     }
     
     @MainActor
-    func login(withEmail email: String, password: String) async throws {
+    func login(withEmail email: String, password: String) async throws -> String? {
         do {
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
-            
+
             try await UserService.shared.fetchCurrentUser()
             self.userSession = result.user
+            
+            return nil
         } catch {
-            print("DEBUG: Failed to create user with errro \(error.localizedDescription)")
+            print("DEBUG: Failed to login user with error \(error.localizedDescription)")
+            
+            return "Invalid login credentials. Please try again."
         }
     }
     

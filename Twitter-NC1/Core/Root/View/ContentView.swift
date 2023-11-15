@@ -12,7 +12,9 @@ struct ContentView: View {
     
     var body: some View {
         if viewModel.userSession != nil {
-            Text("Logged in")
+            Button("Log out") {
+                AuthService.shared.signOut()
+            }
         }
         else {
             LoginView()
