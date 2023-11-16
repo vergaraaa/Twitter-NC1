@@ -94,10 +94,7 @@ struct LoginView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Text("X")
-                        .font(.largeTitle.bold())
-                        .accessibilityAddTraits(.isHeader)
-                        .accessibilityLabel("X Logo")
+                    HeaderLogo()
                 }
             }
             .alert(viewModel.error ?? "", isPresented: $viewModel.showAlert) {
