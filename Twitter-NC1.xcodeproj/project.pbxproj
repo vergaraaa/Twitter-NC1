@@ -45,6 +45,9 @@
 		F0232AAD2B0509510026129E /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0232AAC2B0509510026129E /* ContentViewModel.swift */; };
 		F0232AB02B050A7C0026129E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0232AAF2B050A7C0026129E /* UserService.swift */; };
 		F0232AB32B050AA90026129E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0232AB22B050AA90026129E /* User.swift */; };
+		F04195D42B065B7C006EE3B3 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04195D32B065B7C006EE3B3 /* FeedViewModel.swift */; };
+		F04195D62B065BA2006EE3B3 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04195D52B065BA2006EE3B3 /* FeedView.swift */; };
+		F04195D92B065BC6006EE3B3 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04195D82B065BC6006EE3B3 /* MainTabView.swift */; };
 		F047FB192B03CD5E000288AF /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F047FB182B03CD5E000288AF /* LoginViewModel.swift */; };
 		F047FB1B2B03CD73000288AF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F047FB1A2B03CD73000288AF /* LoginView.swift */; };
 		F047FB202B03D7A0000288AF /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F047FB1F2B03D7A0000288AF /* RegisterView.swift */; };
@@ -62,6 +65,9 @@
 		F0232AAC2B0509510026129E /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		F0232AAF2B050A7C0026129E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		F0232AB22B050AA90026129E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F04195D32B065B7C006EE3B3 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		F04195D52B065BA2006EE3B3 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		F04195D82B065BC6006EE3B3 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		F047FB182B03CD5E000288AF /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F047FB1A2B03CD73000288AF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F047FB1F2B03D7A0000288AF /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
@@ -153,6 +159,39 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		F04195CF2B065AFA006EE3B3 /* MainTabView */ = {
+			isa = PBXGroup;
+			children = (
+				F04195D82B065BC6006EE3B3 /* MainTabView.swift */,
+			);
+			path = MainTabView;
+			sourceTree = "<group>";
+		};
+		F04195D02B065B22006EE3B3 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				F04195D22B065B75006EE3B3 /* View */,
+				F04195D12B065B71006EE3B3 /* ViewModel */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		F04195D12B065B71006EE3B3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F04195D32B065B7C006EE3B3 /* FeedViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F04195D22B065B75006EE3B3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F04195D52B065BA2006EE3B3 /* FeedView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F047FB132B03CD36000288AF /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,7 +207,9 @@
 		F047FB142B03CD3B000288AF /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				F04195D02B065B22006EE3B3 /* Feed */,
 				F047FB152B03CD45000288AF /* Login */,
+				F04195CF2B065AFA006EE3B3 /* MainTabView */,
 				F047FB1C2B03D77C000288AF /* Register */,
 			);
 			path = Features;
@@ -397,6 +438,7 @@
 			files = (
 				F0232AAD2B0509510026129E /* ContentViewModel.swift in Sources */,
 				F048DEC12B02AA05006559C4 /* ContentView.swift in Sources */,
+				F04195D42B065B7C006EE3B3 /* FeedViewModel.swift in Sources */,
 				F0232AB02B050A7C0026129E /* UserService.swift in Sources */,
 				F047FB232B03D7AB000288AF /* RegisterViewModel.swift in Sources */,
 				F047FB202B03D7A0000288AF /* RegisterView.swift in Sources */,
@@ -404,6 +446,8 @@
 				F047FB1B2B03CD73000288AF /* LoginView.swift in Sources */,
 				F047FB192B03CD5E000288AF /* LoginViewModel.swift in Sources */,
 				F071E30E2B05395000C58E19 /* View.swift in Sources */,
+				F04195D62B065BA2006EE3B3 /* FeedView.swift in Sources */,
+				F04195D92B065BC6006EE3B3 /* MainTabView.swift in Sources */,
 				F0232AB32B050AA90026129E /* User.swift in Sources */,
 				F0232A732B0508350026129E /* AuthService.swift in Sources */,
 			);

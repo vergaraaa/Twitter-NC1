@@ -17,11 +17,7 @@ struct ContentView: View {
         }
         else {
             if viewModel.currentUser != nil {
-                Text(AuthService.shared.currentUser?.fullname ?? "")
-                
-                Button("Log out") {
-                    AuthService.shared.signOut()
-                }
+                MainTabView()
             }
             else {
                 LoginView()
