@@ -12,6 +12,7 @@ struct UserProfileView: View {
     @Namespace var animation
     @Environment(\.colorScheme) var theme
     
+    @State var isPresented: Bool = false
     @State var selectedFilter: ProfileTwitterFilter = .posts
     
     private var filterBarWidth: CGFloat {
@@ -31,7 +32,7 @@ struct UserProfileView: View {
                         Spacer()
                         
                         Button {
-                            
+                            isPresented.toggle()
                         } label: {
                             Text("Edit profile")
                                 .font(.caption.bold())
@@ -101,6 +102,9 @@ struct UserProfileView: View {
                         }
                     }
                 }
+            }
+            .sheet(isPresented: $isPresented) {
+                EditProfileView()
             }
         }
     }
