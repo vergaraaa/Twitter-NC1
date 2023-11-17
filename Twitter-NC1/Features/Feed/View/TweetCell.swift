@@ -66,7 +66,6 @@ struct TweetCell: View {
                     .font(.footnote)
                 }
             }
-            .padding(.top, 5)
             
             Divider()
         }
