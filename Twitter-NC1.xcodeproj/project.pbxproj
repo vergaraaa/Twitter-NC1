@@ -62,6 +62,8 @@
 		F048DEC32B02AA06006559C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F048DEC22B02AA06006559C4 /* Assets.xcassets */; };
 		F048DEC62B02AA06006559C4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F048DEC52B02AA06006559C4 /* Preview Assets.xcassets */; };
 		F071E30E2B05395000C58E19 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F071E30D2B05395000C58E19 /* View.swift */; };
+		F08AFF572B079FEF005F7B8A /* PostTweetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08AFF562B079FEF005F7B8A /* PostTweetView.swift */; };
+		F08AFF5A2B079FFD005F7B8A /* PostTweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08AFF592B079FFD005F7B8A /* PostTweetViewModel.swift */; };
 		F0EF1A5F2B0503720037B913 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0EF1A5E2B0503720037B913 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +89,8 @@
 		F048DEC22B02AA06006559C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F048DEC52B02AA06006559C4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F071E30D2B05395000C58E19 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		F08AFF562B079FEF005F7B8A /* PostTweetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTweetView.swift; sourceTree = "<group>"; };
+		F08AFF592B079FFD005F7B8A /* PostTweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTweetViewModel.swift; sourceTree = "<group>"; };
 		F0EF1A5E2B0503720037B913 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -232,6 +236,7 @@
 				F04195D02B065B22006EE3B3 /* Feed */,
 				F047FB152B03CD45000288AF /* Login */,
 				F04195CF2B065AFA006EE3B3 /* MainTabView */,
+				F08AFF532B079FD8005F7B8A /* PostTweet */,
 				F047FB1C2B03D77C000288AF /* Register */,
 			);
 			path = Features;
@@ -346,6 +351,31 @@
 				F071E30D2B05395000C58E19 /* View.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F08AFF532B079FD8005F7B8A /* PostTweet */ = {
+			isa = PBXGroup;
+			children = (
+				F08AFF552B079FE6005F7B8A /* View */,
+				F08AFF542B079FE3005F7B8A /* ViewModel */,
+			);
+			path = PostTweet;
+			sourceTree = "<group>";
+		};
+		F08AFF542B079FE3005F7B8A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F08AFF592B079FFD005F7B8A /* PostTweetViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F08AFF552B079FE6005F7B8A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F08AFF562B079FEF005F7B8A /* PostTweetView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -466,6 +496,7 @@
 				F04195E72B066C55006EE3B3 /* Tweet.swift in Sources */,
 				F0232AB02B050A7C0026129E /* UserService.swift in Sources */,
 				F047FB232B03D7AB000288AF /* RegisterViewModel.swift in Sources */,
+				F08AFF5A2B079FFD005F7B8A /* PostTweetViewModel.swift in Sources */,
 				F04195E52B0663BA006EE3B3 /* HeaderLogo.swift in Sources */,
 				F047FB202B03D7A0000288AF /* RegisterView.swift in Sources */,
 				F048DEBF2B02AA05006559C4 /* Twitter_NC1App.swift in Sources */,
@@ -473,6 +504,7 @@
 				F047FB192B03CD5E000288AF /* LoginViewModel.swift in Sources */,
 				F071E30E2B05395000C58E19 /* View.swift in Sources */,
 				F04195D62B065BA2006EE3B3 /* FeedView.swift in Sources */,
+				F08AFF572B079FEF005F7B8A /* PostTweetView.swift in Sources */,
 				F04195D92B065BC6006EE3B3 /* MainTabView.swift in Sources */,
 				F04195DC2B065D84006EE3B3 /* TweetCell.swift in Sources */,
 				F04195DF2B065DBB006EE3B3 /* CircularProfileImageView.swift in Sources */,

@@ -8,14 +8,30 @@
 import SwiftUI
 
 struct FeedView: View {
+    
+    @State var isPresented = false
+    
     var body: some View {
         NavigationStack {
-            ScrollView(showsIndicators: false) {
-                LazyVStack {
-                    ForEach(0 ..< 20) { tweet in
-                        TweetCell(tweet: Tweet.MOCK_TWEET)
+            ZStack(alignment: .bottomTrailing) {
+                ScrollView(showsIndicators: false) {
+                    LazyVStack {
+                        ForEach(0 ..< 20) { tweet in
+                            TweetCell(tweet: Tweet.MOCK_TWEET)
+                        }
                     }
                 }
+                
+                Button {
+                    isPresented.toggle()
+                } label: {
+                    Image(systemName: "plus")
+                        .padding()
+                        .background(.blue)
+                        .clipShape(Circle())
+                        .foregroundStyle(.white)
+                }
+                .padding()
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
@@ -31,6 +47,9 @@ struct FeedView: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
+            .fullScreenCover(isPresented: $isPresented) {
+                PostTweetView()
+            }
         }
     }
 }
