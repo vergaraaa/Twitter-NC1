@@ -41,16 +41,30 @@ struct PostTweetView: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        
+                        Task {
+                            try await viewModel.postTweet()
+                            dismiss()
+                        }
                     } label: {
-                        Text("Post")
-                            .bold()
-                            .padding(.horizontal)
-                            .padding(.vertical, 5)
-                            .background(.blue)
-                            .clipShape(RoundedRectangle(cornerRadius: 25))
-                            .foregroundStyle(.white)
-                            .opacity(disabled ? 0.5 : 1)
+                        if viewModel.loading {
+                            ProgressView()
+                                .padding(.horizontal)
+                                .padding(.vertical, 5)
+                                .background(.blue)
+                                .clipShape(RoundedRectangle(cornerRadius: 25))
+                                .foregroundStyle(.white)
+                                .tint(.white)
+                        }
+                        else {
+                            Text("Post")
+                                .bold()
+                                .padding(.horizontal)
+                                .padding(.vertical, 5)
+                                .background(.blue)
+                                .clipShape(RoundedRectangle(cornerRadius: 25))
+                                .foregroundStyle(.white)
+                                .opacity(disabled ? 0.5 : 1)
+                        }
                     }
                     .disabled(disabled)
                 }
