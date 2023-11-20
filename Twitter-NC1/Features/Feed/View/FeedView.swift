@@ -11,13 +11,21 @@ struct FeedView: View {
     
     @State var isPresented = false
     
+    @StateObject var viewModel = FeedViewModel()
+    
     var body: some View {
         NavigationStack {
             ZStack(alignment: .bottomTrailing) {
-                ScrollView(showsIndicators: false) {
-                    LazyVStack {
-                        ForEach(0 ..< 20) { tweet in
-                            TweetCell(tweet: Tweet.MOCK_TWEET)
+                if viewModel.loading {
+                    ProgressView()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
+                else {
+                    ScrollView(showsIndicators: false) {
+                        LazyVStack {
+                            ForEach(viewModel.tweets) { tweet in
+                                TweetCell(tweet: tweet)
+                            }
                         }
                     }
                 }
@@ -49,6 +57,9 @@ struct FeedView: View {
             .navigationBarTitleDisplayMode(.inline)
             .fullScreenCover(isPresented: $isPresented) {
                 PostTweetView()
+            }
+            .refreshable {
+                Task { try await viewModel.fetchTweets() }
             }
         }
     }
