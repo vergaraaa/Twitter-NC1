@@ -21,6 +21,7 @@ struct Tweet: Identifiable, Codable {
     }
     
     var user: User?
+    var didLike: Bool? = false
 }
 
 extension Tweet {

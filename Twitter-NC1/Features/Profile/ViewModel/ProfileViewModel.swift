@@ -12,7 +12,7 @@ class ProfileViewModel: ObservableObject {
     let user: User?
     
     @Published var userTweets = [Tweet]()
-    @Published var loading = true
+    @Published var userLikes = [Tweet]()
     
     @MainActor
     init(user: User?) {
@@ -20,17 +20,35 @@ class ProfileViewModel: ObservableObject {
         
         Task {
             try await fetchUserTweets()
-            loading = false
+            try await fetchLikeTweets()
         }
     }
     
     @MainActor
     func fetchUserTweets() async throws {        
         guard let uid = user?.id else { return }
-        userTweets = try await TweetsService.fetchUserTweets(uid: uid)
+        
+        var tweets = try await TweetsService.fetchUserTweets(uid: uid)
         
         for i in 0 ..< userTweets.count {
-            self.userTweets[i].user = user
+            tweets[i].user = user
         }
+        
+        self.userTweets = tweets
+    }
+    
+    @MainActor
+    func fetchLikeTweets() async throws {
+        guard let uid = user?.id else { return }
+        
+        var tweets = try await TweetsService.fetchLikeTweets(forUid: uid)
+        
+        for i in 0 ..< userLikes.count {
+            let uid = userLikes[i].ownerUid
+            
+            tweets[i].user = try await UserService.fetchUser(withUid: uid)
+        }
+        print(tweets)
+        self.userLikes = tweets
     }
 }

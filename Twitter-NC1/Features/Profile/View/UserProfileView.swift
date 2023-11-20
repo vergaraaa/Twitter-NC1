@@ -95,31 +95,32 @@ struct UserProfileView: View {
                 .padding(.horizontal)
                 
                 if selectedFilter == .posts {
-                    if viewModel.loading {
-                        ProgressView()
+                    if viewModel.userTweets.isEmpty {
+                        Text("No tweets to show")
+                            .font(.caption)
                             .frame(maxWidth: .infinity, alignment: .center)
+                            .padding()
                     }
                     else {
-                        if viewModel.userTweets.isEmpty {
-                            Text("No tweets to show")
-                                .font(.caption)
-                                .frame(maxWidth: .infinity, alignment: .center)
-                                .padding()
-                        }
-                        else {
-                            LazyVStack {
-                                ForEach(viewModel.userTweets) { tweet in
-                                    TweetCell(tweet: tweet)
-                                }
+                        LazyVStack {
+                            ForEach(viewModel.userTweets) { tweet in
+                                TweetCell(tweet: tweet)
                             }
                         }
-                        
                     }
                 }
                 else {
-                    LazyVStack {
-                        ForEach(0 ..< 20) { tweet in
-                            TweetCell(tweet: Tweet.MOCK_TWEET)
+                    if viewModel.userLikes.isEmpty {
+                        Text("No tweets to show")
+                            .font(.caption)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .padding()
+                    }
+                    else {
+                        LazyVStack {
+                            ForEach(viewModel.userLikes) { tweet in
+                                TweetCell(tweet: tweet)
+                            }
                         }
                     }
                 }
