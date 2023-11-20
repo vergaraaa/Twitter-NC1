@@ -11,6 +11,7 @@ import FirebaseFirestore
 struct TweetCell: View {
     
     let tweet: Tweet
+    var user: User? { tweet.user }
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -19,10 +20,10 @@ struct TweetCell: View {
                 
                 VStack(alignment: .leading) {
                     HStack {
-                        Text("Edgar ")
+                        Text("\(user?.fullname ?? "") ")
                             .font(.footnote.bold())
                         +
-                        Text("@vergaraaa13 • 23h")
+                        Text("@\(user?.username ?? "") • \(tweet.timestamp.timestampString())")
                             .font(.footnote)
                     }
                     

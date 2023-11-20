@@ -19,7 +19,7 @@ struct RegisterView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            Text("Register")
+            Text("Create your account")
                 .font(.title)
                 .bold()
                 .frame(maxWidth: .infinity, alignment: .leading)

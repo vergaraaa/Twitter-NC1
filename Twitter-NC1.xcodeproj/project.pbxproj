@@ -71,6 +71,7 @@
 		F08AFF672B07AB4C005F7B8A /* ProfileTwitterFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08AFF662B07AB4C005F7B8A /* ProfileTwitterFilter.swift */; };
 		F08AFF6C2B07B025005F7B8A /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08AFF6B2B07B025005F7B8A /* EditProfileViewModel.swift */; };
 		F08AFF6F2B07B030005F7B8A /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08AFF6E2B07B030005F7B8A /* EditProfileView.swift */; };
+		F0ED6A112B0B988F0094A941 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0ED6A102B0B988F0094A941 /* ProfileViewModel.swift */; };
 		F0EF1A5F2B0503720037B913 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0EF1A5E2B0503720037B913 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,7 @@
 		F08AFF662B07AB4C005F7B8A /* ProfileTwitterFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTwitterFilter.swift; sourceTree = "<group>"; };
 		F08AFF6B2B07B025005F7B8A /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		F08AFF6E2B07B030005F7B8A /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		F0ED6A102B0B988F0094A941 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		F0EF1A5E2B0503720037B913 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -410,6 +412,7 @@
 		F08AFF5C2B07A480005F7B8A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F0ED6A102B0B988F0094A941 /* ProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -573,6 +576,7 @@
 				F04195E72B066C55006EE3B3 /* Tweet.swift in Sources */,
 				F0232AB02B050A7C0026129E /* UserService.swift in Sources */,
 				F047FB232B03D7AB000288AF /* RegisterViewModel.swift in Sources */,
+				F0ED6A112B0B988F0094A941 /* ProfileViewModel.swift in Sources */,
 				F08AFF5A2B079FFD005F7B8A /* PostTweetViewModel.swift in Sources */,
 				F08AFF6C2B07B025005F7B8A /* EditProfileViewModel.swift in Sources */,
 				F08AFF5F2B07A48F005F7B8A /* UserProfileView.swift in Sources */,

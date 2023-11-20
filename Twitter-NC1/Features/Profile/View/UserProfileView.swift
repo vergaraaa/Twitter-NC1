@@ -15,6 +15,12 @@ struct UserProfileView: View {
     @State var isPresented: Bool = false
     @State var selectedFilter: ProfileTwitterFilter = .posts
     
+    @StateObject var viewModel: ProfileViewModel
+    
+    init() {
+        self._viewModel = StateObject(wrappedValue: ProfileViewModel(user: AuthService.shared.currentUser))
+    }
+    
     private var filterBarWidth: CGFloat {
         let count = CGFloat(ProfileTwitterFilter.allCases.count)
         return UIScreen.main.bounds.width / count - 20
@@ -89,10 +95,25 @@ struct UserProfileView: View {
                 .padding(.horizontal)
                 
                 if selectedFilter == .posts {
-                    LazyVStack {
-                        ForEach(0 ..< 20) { tweet in
-                            TweetCell(tweet: Tweet.MOCK_TWEET)
+                    if viewModel.loading {
+                        ProgressView()
+                            .frame(maxWidth: .infinity, alignment: .center)
+                    }
+                    else {
+                        if viewModel.userTweets.isEmpty {
+                            Text("No tweets to show")
+                                .font(.caption)
+                                .frame(maxWidth: .infinity, alignment: .center)
+                                .padding()
                         }
+                        else {
+                            LazyVStack {
+                                ForEach(viewModel.userTweets) { tweet in
+                                    TweetCell(tweet: tweet)
+                                }
+                            }
+                        }
+                        
                     }
                 }
                 else {
