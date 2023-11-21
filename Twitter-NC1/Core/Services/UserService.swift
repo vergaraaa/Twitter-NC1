@@ -19,5 +19,17 @@ struct UserService {
         let snapshot = try await Firestore.firestore().collection("users").document(uid).getDocument()
         return try snapshot.data(as: User.self)
     }
+    
+    static func updateUserProfileImage(withImageUrl imageUrl: String) async throws {
+        guard let currentUid = Auth.auth().currentUser?.uid else { return }
+        try await Firestore.firestore().collection("users").document(currentUid).updateData([
+            "profileImageUrl": imageUrl
+        ])
+    }
+    
+    static func updateUserData(newData: [AnyHashable : Any]) async throws {
+        guard let currentUid = Auth.auth().currentUser?.uid else { return }
+        try await Firestore.firestore().collection("users").document(currentUid).updateData(newData)
+    }
 }
 

@@ -21,15 +21,15 @@ struct CurrentUserProfileView: View {
             ScrollView {
                 VStack(alignment: .leading) {
                     VStack(alignment: .leading) {
-                        ProfileHeaderView(user: viewModel.user, isPresented: $isPresented)
+                        ProfileHeaderView(user: viewModel.currentUser, isPresented: $isPresented)
                             .padding(.horizontal)
                         
-                        UserContentListView(user: viewModel.user)
+                        UserContentListView(user: viewModel.currentUser)
                     }
                     
                 }
                 .sheet(isPresented: $isPresented) {
-                    EditProfileView()
+                    EditProfileView(user: viewModel.currentUser)
                 }
             }
         }

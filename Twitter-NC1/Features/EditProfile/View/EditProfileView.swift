@@ -12,7 +12,11 @@ struct EditProfileView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @StateObject var viewModel = EditProfileViewModel()
+    @StateObject var viewModel: EditProfileViewModel
+    
+    init(user: User?) {
+        self._viewModel = StateObject(wrappedValue: EditProfileViewModel(user: user))
+    }
     
     var body: some View {
         NavigationStack {
@@ -26,7 +30,7 @@ struct EditProfileView: View {
                             .clipShape(Circle())
                     }
                     else {
-                        CircularProfileImageView(user: nil, size: .xLarge)
+                        CircularProfileImageView(user: viewModel.user, size: .xLarge)
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .center)
@@ -75,7 +79,7 @@ struct EditProfileView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {
                         Task {
-//                            try await viewModel.updateUserData()
+                            try await viewModel.updateUser()
                             dismiss()
                         }
                     }
@@ -89,5 +93,5 @@ struct EditProfileView: View {
 }
 
 #Preview {
-    EditProfileView()
+    EditProfileView(user: nil)
 }

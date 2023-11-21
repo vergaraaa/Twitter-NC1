@@ -9,10 +9,19 @@ import SwiftUI
 import PhotosUI
 
 class EditProfileViewModel: ObservableObject {
+    let user: User?
+    
     @Published var selectedItem: PhotosPickerItem? {
         didSet {
             Task { await loadImage() }
         }
+    }
+    
+    init(user: User?) {
+        self.user = user
+        
+        fullname = user?.fullname ?? ""
+        bio = user?.bio ?? ""
     }
     
     @Published var profileImage: Image?
@@ -20,6 +29,27 @@ class EditProfileViewModel: ObservableObject {
     
     @Published var fullname = ""
     @Published var bio = ""
+    
+    func updateUser() async throws {
+        if profileImage != nil {
+            try await updateProfileImage()
+        }
+        
+        var newData: [String: String] = [:]
+        
+        if(user?.fullname != fullname) {
+            newData["fullname"] = fullname
+        }
+        
+        if(user?.bio != bio) {
+            newData["bio"] = bio
+        }
+        
+        if !newData.isEmpty {
+            try await updateUserData(newData: newData)
+        }
+    }
+    
     
     @MainActor
     private func loadImage() async {
@@ -29,5 +59,28 @@ class EditProfileViewModel: ObservableObject {
         
         self.uiImage = uiImage
         self.profileImage = Image(uiImage: uiImage)
+    }
+    
+    @MainActor
+    private func updateUserData(newData: [String : String]) async throws {
+        try await UserService.updateUserData(newData: newData)
+        
+        if let fullname = newData["fullname"] {
+            AuthService.shared.currentUser?.fullname = fullname
+        }
+        
+        if let bio = newData["bio"] {
+            AuthService.shared.currentUser?.bio = bio
+        }
+    }
+    
+    @MainActor
+    private func updateProfileImage() async throws {
+        guard let image = self.uiImage else { return }
+        guard let imageUrl = try await ImageUploader.uploadImage(image) else { return }
+        
+        try await UserService.updateUserProfileImage(withImageUrl: imageUrl)
+        
+        AuthService.shared.currentUser?.profileImageUrl = imageUrl
     }
 }
