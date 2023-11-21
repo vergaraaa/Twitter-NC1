@@ -23,10 +23,16 @@ struct TweetCell: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .top) {
-                NavigationLink {
-                    UserProfileView(user: tweet.user)
-                } label: {
-                    CircularProfileImageView(user: tweet.user, size: .small)
+                
+                if(user?.isCurrentUser ?? false) {
+                    CircularProfileImageView(user: user, size: .small)
+                }
+                else {
+                    NavigationLink {
+                        UserProfileView(user: user)
+                    } label: {
+                        CircularProfileImageView(user: user, size: .small)
+                    }
                 }
                 
                 VStack(alignment: .leading) {
