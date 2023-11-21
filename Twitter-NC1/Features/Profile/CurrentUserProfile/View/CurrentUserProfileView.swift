@@ -17,18 +17,20 @@ struct CurrentUserProfileView: View {
 
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading) {
+        NavigationStack {
+            ScrollView {
                 VStack(alignment: .leading) {
-                    ProfileHeaderView(user: viewModel.user, isPresented: $isPresented)
-                        .padding(.horizontal)
+                    VStack(alignment: .leading) {
+                        ProfileHeaderView(user: viewModel.user, isPresented: $isPresented)
+                            .padding(.horizontal)
+                        
+                        UserContentListView(user: viewModel.user)
+                    }
                     
-                    UserContentListView(user: viewModel.user)
                 }
-                
-            }
-            .sheet(isPresented: $isPresented) {
-                EditProfileView()
+                .sheet(isPresented: $isPresented) {
+                    EditProfileView()
+                }
             }
         }
     }

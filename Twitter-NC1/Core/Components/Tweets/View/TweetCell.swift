@@ -23,7 +23,11 @@ struct TweetCell: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .top) {
-                CircularProfileImageView(user: tweet.user, size: .small)
+                NavigationLink {
+                    UserProfileView(user: tweet.user)
+                } label: {
+                    CircularProfileImageView(user: tweet.user, size: .small)
+                }
                 
                 VStack(alignment: .leading) {
                     HStack {

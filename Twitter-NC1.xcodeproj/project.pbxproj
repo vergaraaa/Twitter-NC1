@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F002DAE02B0CEBC4007F5C9E /* UserContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F002DADF2B0CEBC4007F5C9E /* UserContentListView.swift */; };
 		F002DAE22B0CEC79007F5C9E /* UserContentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F002DAE12B0CEC79007F5C9E /* UserContentListViewModel.swift */; };
+		F002DAE52B0CEFB4007F5C9E /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F002DAE42B0CEFB4007F5C9E /* UserProfileView.swift */; };
 		F02060172B0A8DD7002E0E31 /* TweetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02060162B0A8DD7002E0E31 /* TweetsService.swift */; };
 		F0232A642B05068F0026129E /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F0232A632B05068F0026129E /* FirebaseAnalytics */; };
 		F0232A662B05068F0026129E /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = F0232A652B05068F0026129E /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -81,6 +82,7 @@
 /* Begin PBXFileReference section */
 		F002DADF2B0CEBC4007F5C9E /* UserContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserContentListView.swift; sourceTree = "<group>"; };
 		F002DAE12B0CEC79007F5C9E /* UserContentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserContentListViewModel.swift; sourceTree = "<group>"; };
+		F002DAE42B0CEFB4007F5C9E /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		F02060162B0A8DD7002E0E31 /* TweetsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetsService.swift; sourceTree = "<group>"; };
 		F0232A722B0508350026129E /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		F0232AAC2B0509510026129E /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
@@ -195,6 +197,14 @@
 				F08AFF5C2B07A480005F7B8A /* ViewModel */,
 			);
 			path = CurrentUserProfile;
+			sourceTree = "<group>";
+		};
+		F002DAE32B0CEF89007F5C9E /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				F002DAE42B0CEFB4007F5C9E /* UserProfileView.swift */,
+			);
+			path = UserProfile;
 			sourceTree = "<group>";
 		};
 		F0232A712B0507D60026129E /* Services */ = {
@@ -445,6 +455,7 @@
 			children = (
 				F002DADA2B0CE7E3007F5C9E /* Components */,
 				F002DADD2B0CE815007F5C9E /* CurrentUserProfile */,
+				F002DAE32B0CEF89007F5C9E /* UserProfile */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -662,6 +673,7 @@
 				F0ED6A162B0BA2F00094A941 /* TweetCellViewModel.swift in Sources */,
 				F04195DC2B065D84006EE3B3 /* TweetCell.swift in Sources */,
 				F04195DF2B065DBB006EE3B3 /* CircularProfileImageView.swift in Sources */,
+				F002DAE52B0CEFB4007F5C9E /* UserProfileView.swift in Sources */,
 				F08AFF6F2B07B030005F7B8A /* EditProfileView.swift in Sources */,
 				F002DAE02B0CEBC4007F5C9E /* UserContentListView.swift in Sources */,
 				F0232AB32B050AA90026129E /* User.swift in Sources */,
