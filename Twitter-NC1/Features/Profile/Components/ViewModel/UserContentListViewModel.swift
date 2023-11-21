@@ -1,14 +1,13 @@
 //
-//  ProfileViewModel.swift
+//  UserContentListViewModel.swift
 //  Twitter-NC1
 //
-//  Created by Edgar Ernesto Vergara Montiel on 20/11/23.
+//  Created by Edgar Ernesto Vergara Montiel on 21/11/23.
 //
 
-import Firebase
 import Foundation
 
-class ProfileViewModel: ObservableObject {
+class UserContentListViewModel: ObservableObject {
     let user: User?
     
     @Published var userTweets = [Tweet]()
@@ -25,12 +24,12 @@ class ProfileViewModel: ObservableObject {
     }
     
     @MainActor
-    func fetchUserTweets() async throws {        
+    func fetchUserTweets() async throws {
         guard let uid = user?.id else { return }
         
         var tweets = try await TweetsService.fetchUserTweets(uid: uid)
         
-        for i in 0 ..< userTweets.count {
+        for i in 0 ..< tweets.count {
             tweets[i].user = user
         }
         
@@ -43,12 +42,12 @@ class ProfileViewModel: ObservableObject {
         
         var tweets = try await TweetsService.fetchLikeTweets(forUid: uid)
         
-        for i in 0 ..< userLikes.count {
-            let uid = userLikes[i].ownerUid
+        for i in 0 ..< tweets.count {
+            let uid = tweets[i].ownerUid
             
             tweets[i].user = try await UserService.fetchUser(withUid: uid)
         }
-        print(tweets)
+        
         self.userLikes = tweets
     }
 }

@@ -89,8 +89,6 @@ struct TweetsService {
             tweets.append(tweet)
         }
         
-        print(tweets)
-        
         return tweets
     }
 }

@@ -16,7 +16,7 @@ struct MainTabView: View {
                 }
                 .tag(0)
             
-            UserProfileView()
+            CurrentUserProfileView()
                 .tabItem {
                     Label("", systemImage: "person")
                 }
