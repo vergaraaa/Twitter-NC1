@@ -24,17 +24,21 @@ struct LoginView: View {
                     .font(.title)
                     .bold()
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    
                 
                 VStack(spacing: 30) {
                     VStack(alignment: .leading, spacing: 5) {
                         Text(viewModel.email.isEmpty ? "" : "Email")
                             .font(.callout)
+                            .accessibilityHidden(true)
                         
                         
                         TextField("Email", text: $viewModel.email)
                             .autocorrectionDisabled()
                             .textInputAutocapitalization(.never)
                             .foregroundStyle(.blue)
+                            .accessibilityValue(viewModel.email)
+                            .accessibilityLabel("Email textfield")
                         
                         Divider()
                     }
@@ -42,9 +46,13 @@ struct LoginView: View {
                     VStack(alignment: .leading, spacing: 5) {
                         Text(viewModel.password.isEmpty ? "" : "Password")
                             .font(.callout)
+                            .accessibilityHidden(true)
+                            
                         
                         SecureField("Password", text: $viewModel.password)
                             .foregroundStyle(.blue)
+                            .accessibilityValue(viewModel.password)
+                            .accessibilityLabel("Password textfield")
                         
                         Divider()
                     }
@@ -77,6 +85,7 @@ struct LoginView: View {
                         }
                     }
                     .disabled(disabled)
+                    .accessibilityHint("Tap to login. Disabled when fields are empty")
                     
                     NavigationLink {
                         RegisterView()
@@ -86,6 +95,8 @@ struct LoginView: View {
                             .bold()
                             .font(.caption)
                     }
+                    .accessibilityLabel("Register")
+                    .accessibilityHint("Tap to navigate to register view")
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)

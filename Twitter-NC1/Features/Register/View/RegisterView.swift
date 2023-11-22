@@ -28,11 +28,14 @@ struct RegisterView: View {
                 VStack(alignment: .leading, spacing: 5) {
                     Text(viewModel.fullname.isEmpty ? "" : "Name")
                         .font(.callout)
+                        .accessibilityHidden(true)
                     
                     
                     TextField("Name", text: $viewModel.fullname)
                         .autocorrectionDisabled()
                         .foregroundStyle(.blue)
+                        .accessibilityValue(viewModel.fullname)
+                        .accessibilityLabel("Name textfield")
                     
                     Divider()
                 }
@@ -40,12 +43,14 @@ struct RegisterView: View {
                 VStack(alignment: .leading, spacing: 5) {
                     Text(viewModel.username.isEmpty ? "" : "Username")
                         .font(.callout)
-                    
+                        .accessibilityHidden(true)
                     
                     TextField("Username", text: $viewModel.username)
                         .autocorrectionDisabled()
                         .textInputAutocapitalization(.never)
                         .foregroundStyle(.blue)
+                        .accessibilityValue(viewModel.username)
+                        .accessibilityLabel("Username textfield")
                     
                     Divider()
                 }
@@ -53,12 +58,14 @@ struct RegisterView: View {
                 VStack(alignment: .leading, spacing: 5) {
                     Text(viewModel.email.isEmpty ? "" : "Email")
                         .font(.callout)
-                    
+                        .accessibilityHidden(true)
                     
                     TextField("Email", text: $viewModel.email)
                         .autocorrectionDisabled()
                         .textInputAutocapitalization(.never)
                         .foregroundStyle(.blue)
+                        .accessibilityValue(viewModel.email)
+                        .accessibilityLabel("Email textfield")
                     
                     Divider()
                 }
@@ -66,9 +73,12 @@ struct RegisterView: View {
                 VStack(alignment: .leading, spacing: 5) {
                     Text(viewModel.password.isEmpty ? "" : "Password")
                         .font(.callout)
+                        .accessibilityHidden(true)
                     
                     SecureField("Password", text: $viewModel.password)
                         .foregroundStyle(.blue)
+                        .accessibilityValue(viewModel.password)
+                        .accessibilityLabel("Password textfield")
                     
                     Divider()
                 }
@@ -97,6 +107,7 @@ struct RegisterView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 30))
                         .foregroundStyle(theme == .light ? .white : .black)
                         .bold()
+                        .accessibilityHint("Tap to Register. Disabled when fields are empty")
                 }
             }
             .padding(.bottom)
