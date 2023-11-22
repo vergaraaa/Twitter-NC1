@@ -40,6 +40,8 @@ struct FeedView: View {
                         .foregroundStyle(.white)
                 }
                 .padding()
+                .accessibilityLabel("Post")
+                .accessibilityHint("Tap to post a new tweet")
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
@@ -52,6 +54,7 @@ struct FeedView: View {
                     } label: {
                         Image(systemName: "rectangle.portrait.and.arrow.right")
                     }
+                    .accessibilityLabel("Logout")
                 }
             }
             .navigationBarTitleDisplayMode(.inline)

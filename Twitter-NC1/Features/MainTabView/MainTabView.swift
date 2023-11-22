@@ -13,14 +13,18 @@ struct MainTabView: View {
             FeedView()
                 .tabItem {
                     Label("", systemImage: "house")
+                        .accessibilityLabel("Feed")
                 }
                 .tag(0)
+                
             
             CurrentUserProfileView()
                 .tabItem {
                     Label("", systemImage: "person")
+                        .accessibilityLabel("User Profile")
                 }
                 .tag(1)
+                
         }
     }
 }
