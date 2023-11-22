@@ -39,7 +39,7 @@ struct CircularProfileImageView: View {
                 .scaledToFill()
                 .frame(width: size.dimension, height: size.dimension)
                 .clipShape(Circle())
-                .accessibilityLabel("User profile image")
+                .accessibilityLabel("User profile")
         }
         else {
             Image(systemName: "person.circle.fill")

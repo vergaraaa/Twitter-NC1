@@ -31,6 +31,7 @@ struct UserContentListView: View {
                         Text(filter.title)
                             .font(.subheadline)
                             .fontWeight(selectedFilter == filter ? .semibold : .regular)
+                            .accessibilityHint("Tap to switch to user's \(filter.title)")
                         
                         if selectedFilter == filter {
                             Rectangle()
@@ -53,6 +54,7 @@ struct UserContentListView: View {
             }
             .padding(.top)
             .padding(.horizontal)
+            .accessibilityLabel("User profile filters")
             
             if selectedFilter == .posts {
                 if viewModel.userTweets.isEmpty {

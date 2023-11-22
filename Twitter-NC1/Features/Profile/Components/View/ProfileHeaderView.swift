@@ -24,9 +24,6 @@ struct ProfileHeaderView: View {
                 if (user?.isCurrentUser ?? false) {
                     isPresented.toggle()
                 }
-                else {
-                    
-                }
             } label: {
                 Text((user?.isCurrentUser ?? false) ? "Edit profile" : "Follow")
                     .font(.caption.bold())
@@ -39,17 +36,25 @@ struct ProfileHeaderView: View {
                     .foregroundStyle(theme == .light ? .black : .white)
             }
             .cornerRadius(25)
+            .accessibilityLabel((user?.isCurrentUser ?? false) ? "Edit profile" : "Follow")
+            .accessibilityHint((user?.isCurrentUser ?? false) ? "Tap to edit your profile" : "Tap to follow user")
         }
         
         Text(user?.fullname ?? "")
             .font(.title.bold())
+            .accessibilityLabel("User's fullname")
+            .accessibilityValue(user?.fullname ?? "")
         
         Text("@\(user?.username ?? "")")
             .foregroundStyle(.gray)
+            .accessibilityLabel("User's username")
+            .accessibilityValue(user?.username ?? "")
         
         if let bio = user?.bio {
             Text(bio)
                 .padding(.top)
+                .accessibilityLabel("User's bio")
+                .accessibilityValue(user?.bio ?? "")
         }
     }
 }
