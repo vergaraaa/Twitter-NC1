@@ -25,6 +25,8 @@ struct PostTweetView: View {
                     
                     TextField("What's happening today?", text: $viewModel.caption, axis: .vertical)
                         .multilineTextAlignment(.leading)
+                        .accessibilityLabel("Caption textfield")
+                        .accessibilityValue(viewModel.caption)
                 }
                 .padding()
                 
@@ -37,6 +39,8 @@ struct PostTweetView: View {
                         dismiss()
                     }
                     .foregroundStyle(theme == .light ? .black : .white)
+                    .accessibilityLabel("Cancel")
+                    .accessibilityHint("Tap to cancel and dismiss")
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
@@ -67,6 +71,8 @@ struct PostTweetView: View {
                         }
                     }
                     .disabled(disabled)
+                    .accessibilityLabel("Post")
+                    .accessibilityHint("Tap to post new tweet. Disabled if Caption TextField is empty")
                 }
             }
         }

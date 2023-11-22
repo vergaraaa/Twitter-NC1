@@ -39,12 +39,14 @@ struct CircularProfileImageView: View {
                 .scaledToFill()
                 .frame(width: size.dimension, height: size.dimension)
                 .clipShape(Circle())
+                .accessibilityLabel("User profile image")
         }
         else {
             Image(systemName: "person.circle.fill")
                 .resizable()
                 .frame(width: size.dimension, height: size.dimension)
                 .foregroundStyle(Color(.systemGray4))
+                .accessibilityLabel("Empty user profile")
         }
         
     }
