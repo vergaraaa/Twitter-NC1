@@ -11,6 +11,7 @@ import PhotosUI
 struct EditProfileView: View {
     
     @Environment(\.dismiss) var dismiss
+    @Environment(\.colorScheme) var theme
     
     @StateObject var viewModel: EditProfileViewModel
     
@@ -80,22 +81,30 @@ struct EditProfileView: View {
                     Button("Cancel") {
                         dismiss()
                     }
+                    .disabled(viewModel.loading)
                     .font(.subheadline)
-                    .foregroundColor(.black)
+                    .foregroundStyle(theme == .light ? .black : .white)
+                    .opacity(viewModel.loading ? 0.5 : 1.0)
                     .accessibilityHint("Tap to dismiss modal")
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Save") {
-                        Task {
-                            try await viewModel.updateUser()
-                            dismiss()
-                        }
+                    if viewModel.loading {
+                        ProgressView()
+                            .tint(theme == .light ? .black : .white)
                     }
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.black)
-                    .accessibilityHint("Tap to update your information")
+                    else {
+                        Button("Save") {
+                            Task {
+                                try await viewModel.updateUser()
+                                dismiss()
+                            }
+                        }
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+                        .foregroundStyle(theme == .light ? .black : .white)
+                        .accessibilityHint("Tap to update your information")
+                    }
                 }
             }
         }

@@ -13,6 +13,8 @@ class PostTweetViewModel: ObservableObject {
     @Published var caption = ""
     @Published var loading = false
     
+    let currentUser = AuthService.shared.currentUser
+    
     @MainActor
     func postTweet() async throws {
         guard let uid = Auth.auth().currentUser?.uid else { return }

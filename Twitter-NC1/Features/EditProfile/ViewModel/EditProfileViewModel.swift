@@ -10,6 +10,7 @@ import PhotosUI
 
 class EditProfileViewModel: ObservableObject {
     let user: User?
+    @Published var loading = false
     
     @Published var selectedItem: PhotosPickerItem? {
         didSet {
@@ -30,7 +31,10 @@ class EditProfileViewModel: ObservableObject {
     @Published var fullname = ""
     @Published var bio = ""
     
+    @MainActor
     func updateUser() async throws {
+        loading = true
+        
         if profileImage != nil {
             try await updateProfileImage()
         }
@@ -48,6 +52,8 @@ class EditProfileViewModel: ObservableObject {
         if !newData.isEmpty {
             try await updateUserData(newData: newData)
         }
+        
+        loading = false
     }
     
     

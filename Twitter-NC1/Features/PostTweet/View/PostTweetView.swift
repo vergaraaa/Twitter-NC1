@@ -21,7 +21,7 @@ struct PostTweetView: View {
         NavigationStack {
             VStack {
                 HStack(alignment: .top) {
-                    CircularProfileImageView(user: nil, size: .small)
+                    CircularProfileImageView(user: AuthService.shared.currentUser, size: .small)
                     
                     TextField("What's happening today?", text: $viewModel.caption, axis: .vertical)
                         .multilineTextAlignment(.leading)
@@ -38,8 +38,10 @@ struct PostTweetView: View {
                     Button("Cancel") {
                         dismiss()
                     }
+                    .disabled(viewModel.loading)
                     .foregroundStyle(theme == .light ? .black : .white)
                     .accessibilityLabel("Cancel")
+                    .opacity(viewModel.loading ? 0.5 : 1)
                     .accessibilityHint("Tap to cancel and dismiss")
                 }
                 
