@@ -28,12 +28,14 @@ struct EditProfileView: View {
                             .scaledToFill()
                             .frame(width: 80, height: 80)
                             .clipShape(Circle())
+                            .accessibilityLabel("New profile image to be uploaded")
                     }
                     else {
                         CircularProfileImageView(user: viewModel.user, size: .xLarge)
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .center)
+                .accessibilityHint("Tap to update your profile image")
                 
                 Divider()
                     .padding(.vertical, 2.5)
@@ -45,6 +47,9 @@ struct EditProfileView: View {
                     Spacer()
                     
                     TextField("Add your name", text: $viewModel.fullname)
+                        .accessibilityLabel("Name textfield")
+                        .accessibilityValue(viewModel.fullname)
+                        .accessibilityHint("Tap to edit your fullname")
                 }
                 
                 Divider()
@@ -56,7 +61,10 @@ struct EditProfileView: View {
                     
                     Spacer()
                     
-                    TextField("Add your name", text: $viewModel.bio)
+                    TextField("Add your bio", text: $viewModel.bio)
+                        .accessibilityLabel("Bio textfield")
+                        .accessibilityValue(viewModel.bio)
+                        .accessibilityHint("Tap to edit your bio")
                 }
                 
                 Divider()
@@ -74,6 +82,7 @@ struct EditProfileView: View {
                     }
                     .font(.subheadline)
                     .foregroundColor(.black)
+                    .accessibilityHint("Tap to dismiss modal")
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -86,6 +95,7 @@ struct EditProfileView: View {
                     .font(.subheadline)
                     .fontWeight(.semibold)
                     .foregroundColor(.black)
+                    .accessibilityHint("Tap to update your information")
                 }
             }
         }
