@@ -24,14 +24,14 @@ struct TweetCell: View {
         VStack(alignment: .leading) {
             HStack(alignment: .top) {
                 if(user?.isCurrentUser ?? false) {
-                    CircularProfileImageView(user: user, size: .small)
+                    CircularProfileImageView(user: user, size: .medium)
                         .accessibilityLabel("User profile image of the tweet")
                 }
                 else {
                     NavigationLink {
                         UserProfileView(user: user)
                     } label: {
-                        CircularProfileImageView(user: user, size: .small)
+                        CircularProfileImageView(user: user, size: .medium)
                             .accessibilityLabel("User profile image of the tweet")
                             .accessibilityHint("Tap to navigate to current tweet's user profile")
                     }
