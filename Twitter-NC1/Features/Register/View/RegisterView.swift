@@ -35,7 +35,7 @@ struct RegisterView: View {
                         .autocorrectionDisabled()
                         .foregroundStyle(.blue)
                         .accessibilityValue(viewModel.fullname)
-                        .accessibilityLabel("Name textfield")
+                        .accessibilityLabel("Name")
                     
                     Divider()
                 }
@@ -50,7 +50,7 @@ struct RegisterView: View {
                         .textInputAutocapitalization(.never)
                         .foregroundStyle(.blue)
                         .accessibilityValue(viewModel.username)
-                        .accessibilityLabel("Username textfield")
+                        .accessibilityLabel("Username")
                     
                     Divider()
                 }
@@ -65,7 +65,7 @@ struct RegisterView: View {
                         .textInputAutocapitalization(.never)
                         .foregroundStyle(.blue)
                         .accessibilityValue(viewModel.email)
-                        .accessibilityLabel("Email textfield")
+                        .accessibilityLabel("Email")
                     
                     Divider()
                 }
@@ -78,7 +78,7 @@ struct RegisterView: View {
                     SecureField("Password", text: $viewModel.password)
                         .foregroundStyle(.blue)
                         .accessibilityValue(viewModel.password)
-                        .accessibilityLabel("Password textfield")
+                        .accessibilityLabel("Password")
                     
                     Divider()
                 }

@@ -38,7 +38,7 @@ struct LoginView: View {
                             .textInputAutocapitalization(.never)
                             .foregroundStyle(.blue)
                             .accessibilityValue(viewModel.email)
-                            .accessibilityLabel("Email textfield")
+                            .accessibilityLabel("Email")
                         
                         Divider()
                     }
@@ -52,7 +52,7 @@ struct LoginView: View {
                         SecureField("Password", text: $viewModel.password)
                             .foregroundStyle(.blue)
                             .accessibilityValue(viewModel.password)
-                            .accessibilityLabel("Password textfield")
+                            .accessibilityLabel("Password")
                         
                         Divider()
                     }
